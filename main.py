@@ -1,10 +1,7 @@
-import discord
 import os
 import time
 import json
 import random
-import asyncio
-import keep_alive
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix="!")
@@ -129,5 +126,4 @@ async def on_command_error(ctx, error):
         sec = round(error.retry_after)
         await ctx.send(f"You are on cooldown. Try again in **{convert(sec)}**. ")
 
-keep_alive.keep_alive()
 bot.run(os.environ.get("DISCORD_BOT_TOKEN"))
